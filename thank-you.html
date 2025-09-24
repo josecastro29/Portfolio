@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagem Enviada - José</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="grid-container">
+        <div class="plane">
+            <div class="grid"></div>
+            <div class="glow"></div>
+        </div>
+        <div class="plane">
+            <div class="grid"></div>
+            <div class="glow"></div>
+        </div>
+    </div>
+
+    <div class="thank-you-container">
+        <div class="thank-you-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1>Mensagem Enviada!</h1>
+            <p>Obrigado pela sua mensagem. Entrarei em contacto consigo brevemente.</p>
+            <a href="index.html" class="btn btn-primary">
+                <i class="fas fa-arrow-left"></i>
+                Voltar ao Portfólio
+            </a>
+        </div>
+    </div>
+
+    <style>
+        .thank-you-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .thank-you-content {
+            text-align: center;
+            background: rgba(0, 20, 0, 0.9);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            max-width: 500px;
+            box-shadow: 0 10px 40px rgba(0, 255, 65, 0.2);
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: #00ff41;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px currentColor;
+        }
+
+        .thank-you-content h1 {
+            font-size: 2.5rem;
+            color: #00ff41;
+            margin-bottom: 1rem;
+            font-family: 'Share Tech Mono', monospace;
+            text-shadow: 0 0 15px currentColor;
+        }
+
+        .thank-you-content p {
+            color: #ccc;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #00ff41, #00cc33);
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 255, 65, 0.3);
+        }
+    </style>
+</body>
+</html>
