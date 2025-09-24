@@ -445,7 +445,6 @@
             if (projectData && modal) {
                 modalTitle.textContent = `Demo - ${projectData.title}`;
                 demoVideo.src = projectData.video;
-                demoVideo.poster = `images/${projectName.toLowerCase().replace(/\s+/g, '')}-preview.jpg`;
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden';
                 
