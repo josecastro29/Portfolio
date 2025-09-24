@@ -417,6 +417,7 @@
         const modal = document.getElementById('demo-modal');
         const modalTitle = document.getElementById('modal-project-title');
         const demoVideo = document.getElementById('demo-video');
+        const videoPlaceholder = document.querySelector('.video-placeholder');
         const closeModal = document.querySelector('.close');
 
         // Project demo data
@@ -444,12 +445,45 @@
             const projectData = projectDemos[projectName];
             if (projectData && modal) {
                 modalTitle.textContent = `Demo - ${projectData.title}`;
+                
+                // Reset video first
+                demoVideo.pause();
+                demoVideo.currentTime = 0;
+                
+                // Configure video source
+                const videoSource = demoVideo.querySelector('source');
+                if (videoSource) {
+                    videoSource.src = projectData.video;
+                }
                 demoVideo.src = projectData.video;
+                
+                // Load the video
+                demoVideo.load();
+                
+                // Show modal
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden';
                 
-                // Reset video
-                demoVideo.currentTime = 0;
+                // Handle video loading states
+                if (videoPlaceholder) {
+                    videoPlaceholder.style.opacity = '1';
+                    
+                    const hideOnLoad = () => {
+                        videoPlaceholder.style.opacity = '0';
+                    };
+                    
+                    const showOnError = () => {
+                        videoPlaceholder.style.opacity = '1';
+                        const placeholderText = videoPlaceholder.querySelector('p');
+                        if (placeholderText) {
+                            placeholderText.textContent = 'Erro ao carregar o vídeo';
+                        }
+                    };
+                    
+                    demoVideo.addEventListener('loadstart', hideOnLoad);
+                    demoVideo.addEventListener('canplay', hideOnLoad);
+                    demoVideo.addEventListener('error', showOnError);
+                }
             }
         };
 
@@ -459,9 +493,27 @@
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
                 
-                // Stop video
+                // Stop and clear video
                 demoVideo.pause();
+                demoVideo.currentTime = 0;
                 demoVideo.src = '';
+                
+                // Clear video source
+                const videoSource = demoVideo.querySelector('source');
+                if (videoSource) {
+                    videoSource.src = '';
+                }
+                
+                demoVideo.load();
+                
+                // Reset placeholder
+                if (videoPlaceholder) {
+                    videoPlaceholder.style.opacity = '1';
+                    const placeholderText = videoPlaceholder.querySelector('p');
+                    if (placeholderText) {
+                        placeholderText.textContent = 'Clique para carregar o vídeo de demonstração';
+                    }
+                }
             }
         };
 

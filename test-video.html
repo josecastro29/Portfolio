@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Vídeo</title>
+</head>
+<body>
+    <h1>Teste de Vídeos</h1>
+    
+    <h2>TrustChain</h2>
+    <video controls width="400">
+        <source src="videos/trustchain-demo.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+    </video>
+    
+    <h2>MazeRush</h2>
+    <video controls width="400">
+        <source src="videos/mazerush-demo.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+    </video>
+    
+    <h2>BiblioUTAD</h2>
+    <video controls width="400">
+        <source src="videos/biblioutad-demo.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+    </video>
+    
+    <h2>Task Manager</h2>
+    <video controls width="400">
+        <source src="videos/taskmanager-demo.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+    </video>
+    
+    <script>
+        // Teste se os vídeos carregam
+        const videos = document.querySelectorAll('video');
+        videos.forEach((video, index) => {
+            video.addEventListener('loadstart', () => {
+                console.log(`Vídeo ${index + 1} começou a carregar`);
+            });
+            
+            video.addEventListener('canplay', () => {
+                console.log(`Vídeo ${index + 1} está pronto para reproduzir`);
+            });
+            
+            video.addEventListener('error', (e) => {
+                console.error(`Erro no vídeo ${index + 1}:`, e);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1541,6 +1541,13 @@ section {
     text-align: center;
     color: #666;
     pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.video-container video[src]:not([src=""]) + .video-placeholder,
+.video-container video source[src]:not([src=""]) ~ .video-placeholder {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .video-placeholder i {
